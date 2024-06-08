@@ -20,7 +20,7 @@
 
       .calendar-container {
         background-color: rgba(255, 255, 255, 0.8); /* Background putih semi-transparan */
-        padding: 20px;
+        padding: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         text-align: center;
@@ -32,7 +32,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
       }
 
       .month-year {
@@ -42,24 +42,24 @@
       }
 
       .month {
-        font-size: 24px;
+        font-size: 18px;
         font-weight: bold;
       }
 
       .year {
-        font-size: 18px;
+        font-size: 14px;
         color: #666;
       }
 
       .calendar {
         display: grid;
-        grid-template-columns: repeat(7, 1fr);
+        grid-template-columns: repeat(4, 1fr); /* Ubah menjadi empat kolom */
         gap: 5px;
       }
 
       .day-name,
       .date {
-        padding: 10px;
+        padding: 5px;
         text-align: center;
         border: 1px solid #ddd;
         border-radius: 4px;
@@ -88,10 +88,10 @@
       }
 
       /* Responsif untuk ponsel */
-      @media (max-width: 600px) {
+      @media (max-width: 400px) {
         .calendar {
           grid-template-columns: repeat(3, 1fr); /* Ubah menjadi tiga kolom */
-          font-size: 14px; /* Perkecil ukuran font */
+          font-size: 12px; /* Perkecil ukuran font */
         }
 
         .day-name {
@@ -100,7 +100,15 @@
 
         .calendar-container {
           width: 100%; /* Lebarkan container agar sesuai dengan layar ponsel */
-          padding: 10px; /* Sesuaikan padding */
+          padding: 5px; /* Sesuaikan padding */
+        }
+
+        .month {
+          font-size: 16px; /* Perbesar ukuran bulan */
+        }
+
+        .year {
+          font-size: 12px; /* Perkecil ukuran tahun */
         }
       }
     </style>
