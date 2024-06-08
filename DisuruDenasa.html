@@ -7,7 +7,8 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
+        background: url("1.jpg") no-repeat center center fixed;
+        background-size: cover;
         color: #333;
         margin: 0;
         padding: 0;
@@ -18,11 +19,13 @@
       }
 
       .calendar-container {
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.8); /* Background putih semi-transparan */
         padding: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         text-align: center;
+        width: 90%;
+        max-width: 600px;
       }
 
       .calendar-header {
@@ -83,11 +86,22 @@
       .date:hover {
         background-color: #0056b3;
       }
+
+      /* Responsif untuk ponsel */
+      @media (max-width: 600px) {
+        .calendar {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .day-name {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="calendar-container">
-      <h1>Tugas Disuru Denasa</h1>
+      <h1>Disuru Denasa</h1>
       <div class="calendar-header">
         <div class="month-year">
           <span class="month">JULI</span>
