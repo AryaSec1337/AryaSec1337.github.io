@@ -90,18 +90,24 @@
       /* Responsif untuk ponsel */
       @media (max-width: 600px) {
         .calendar {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr); /* Ubah menjadi tiga kolom */
+          font-size: 14px; /* Perkecil ukuran font */
         }
 
         .day-name {
           display: none;
+        }
+
+        .calendar-container {
+          width: 100%; /* Lebarkan container agar sesuai dengan layar ponsel */
+          padding: 10px; /* Sesuaikan padding */
         }
       }
     </style>
   </head>
   <body>
     <div class="calendar-container">
-      <h1>Tugas Disuru Denasa</h1>
+      <h1>Disuru Denasa</h1>
       <div class="calendar-header">
         <div class="month-year">
           <span class="month">JULI</span>
