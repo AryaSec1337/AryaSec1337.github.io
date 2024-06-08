@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalender Juli 2024</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .calendar-container {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .month-year {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .month {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .year {
+        font-size: 18px;
+        color: #666;
+      }
+
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+      }
+
+      .day-name,
+      .date {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .day-name {
+        background-color: #f0f0f0;
+        font-weight: bold;
+      }
+
+      .date.empty {
+        background-color: transparent;
+      }
+
+      .date {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      .date:nth-child(7n + 1) {
+        background-color: #ff0000; /* Warna merah untuk hari Minggu */
+      }
+
+      .date:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calendar-container">
+      <h1>Tugas Disuru Denasa</h1>
+      <div class="calendar-header">
+        <div class="month-year">
+          <span class="month">JULI</span>
+          <span class="year">2024</span>
+        </div>
+      </div>
+      <div class="calendar">
+        <div class="day-name">MINGGU</div>
+        <div class="day-name">SENIN</div>
+        <div class="day-name">SELASA</div>
+        <div class="day-name">RABU</div>
+        <div class="day-name">KAMIS</div>
+        <div class="day-name">JUMAT</div>
+        <div class="day-name">SABTU</div>
+        <!-- Tanggal akan di-generate dengan JavaScript -->
+      </div>
+    </div>
+    <script>
+      const calendarContainer = document.querySelector(".calendar");
+
+      // Awal hari di Juli 2024 adalah Senin, jadi tambahkan 1 sel kosong untuk Minggu
+      for (let i = 0; i < 1; i++) {
+        const emptyDiv = document.createElement("div");
+        emptyDiv.classList.add("date", "empty");
+        calendarContainer.appendChild(emptyDiv);
+      }
+
+      for (let day = 1; day <= 40; day++) {
+        const dateDiv = document.createElement("div");
+        dateDiv.classList.add("date");
+        dateDiv.textContent = day;
+        calendarContainer.appendChild(dateDiv);
+      }
+    </script>
+  </body>
+</html>
