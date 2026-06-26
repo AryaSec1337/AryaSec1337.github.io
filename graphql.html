@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlowQL — Premium GraphQL Beautifier & Formatter</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="A premium, dark-themed GraphQL query beautifier, formatter, and minifier with live syntax validation and export tools.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- PrismJS Tomorrow Night Theme (via CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-glow"></div>
+  
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo-area">
+        <span class="logo-icon">✨</span>
+        <div class="logo-text">
+          <h1>GlowQL</h1>
+          <p>GraphQL Beautifier & Formatter</p>
+        </div>
+      </div>
+      <div class="header-nav">
+        <button id="nav-formatter" class="nav-tab active">Formatter</button>
+        <button id="nav-playground" class="nav-tab">Playground</button>
+      </div>
+      <div class="header-actions">
+        <button id="load-sample-btn" class="btn btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Load Sample
+        </button>
+      </div>
+    </header>
+
+    <!-- Tab 1: Formatter View -->
+    <div id="formatter-view" class="tab-content active">
+      <main class="workspace-grid">
+        <!-- Input Panel -->
+        <section class="panel glass-panel" id="input-panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span class="panel-badge badge-input">Input</span>
+              <h2>Paste Raw GraphQL</h2>
+            </div>
+            <button id="clear-btn" class="btn-icon" title="Clear input">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+            </button>
+          </div>
+          <div class="panel-body">
+            <textarea id="graphql-input" placeholder="# Paste your GraphQL query (single-line or messy)...&#10;# OR paste a raw HTTP request header & payload dump...&#10;# Example: POST /api/graphql HTTP/2" spellcheck="false"></textarea>
+          </div>
+        </section>
+
+        <!-- Output Panel -->
+        <section class="panel glass-panel" id="output-panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span class="panel-badge badge-output">Output</span>
+              <h2>Beautified Result</h2>
+            </div>
+            <div class="panel-actions">
+              <div class="toggle-group">
+                <button id="mode-beautify" class="toggle-btn active">Beautify</button>
+                <button id="mode-minify" class="toggle-btn">Minify</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body code-container">
+            <div class="output-actions">
+              <button id="copy-query-btn" class="btn btn-sm btn-primary">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy Query</span>
+              </button>
+              <button id="copy-json-btn" class="btn btn-sm btn-secondary">
+                <span>Copy as JSON</span>
+              </button>
+              <button id="copy-curl-btn" class="btn btn-sm btn-secondary">
+                <span>Copy curl</span>
+              </button>
+            </div>
+            <pre id="graphql-output-pre"><code id="graphql-output" class="language-graphql"># Output will appear here...</code></pre>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Tab 2: Playground (Executor) View -->
+    <div id="playground-view" class="tab-content">
+      <main class="workspace-grid">
+        <!-- Settings Panel -->
+        <section class="panel glass-panel" id="settings-panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span class="panel-badge badge-input">Settings</span>
+              <h2>Request Configuration</h2>
+            </div>
+          </div>
+          <div class="panel-body playground-settings">
+            <div class="input-group">
+              <label for="endpoint-input">GraphQL Endpoint URL</label>
+              <input type="url" id="endpoint-input" value="https://www.thefork.com/api/graphql" placeholder="https://api.example.com/graphql" spellcheck="false">
+            </div>
+            
+            <div class="input-group flex-1">
+              <label for="headers-input">HTTP Headers (JSON)</label>
+              <textarea id="headers-input" placeholder='{&#10;  "Content-Type": "application/json"&#10;}' spellcheck="false"></textarea>
+            </div>
+            
+            <div class="input-group flex-1">
+              <label for="variables-input">Query Variables (JSON)</label>
+              <textarea id="variables-input" placeholder='{&#10;  "restaurantId": "123"&#10;}' spellcheck="false"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- Response Panel -->
+        <section class="panel glass-panel" id="response-panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span class="panel-badge badge-output">Response</span>
+              <h2>Execution Result</h2>
+            </div>
+            <div class="panel-actions">
+              <button id="run-query-btn" class="btn btn-sm btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>Run Query</span>
+              </button>
+            </div>
+          </div>
+          <div class="panel-body code-container">
+            <div class="cors-alert">
+              <span class="alert-icon">⚠️</span>
+              <p class="alert-text"><strong>CORS Restriction:</strong> If the endpoint blocks requests, ensure you have a CORS unblocker extension active, or use <strong>Copy curl</strong> on the Formatter tab to run in a terminal.</p>
+            </div>
+            <pre id="playground-response-pre"><code id="playground-response" class="language-json">{ "message": "Execute query to see response..." }</code></pre>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Diagnostics / Status Footer -->
+    <footer class="app-footer glass-panel">
+      <div id="status-bar" class="status-bar info">
+        <span class="status-icon">💡</span>
+        <span id="status-message" class="status-text">Enter or paste a GraphQL query to format.</span>
+      </div>
+      <div class="footer-stats">
+        <span id="char-count">0 characters</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden">Copied to clipboard!</div>
+
+  <!-- PrismJS Core and GraphQL/JSON Components (via CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-graphql.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+
+  <!-- App Script -->
+  <script src="bundle.js"></script>
+</body>
+</html>

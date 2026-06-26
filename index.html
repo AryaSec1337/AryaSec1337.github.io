@@ -3,173 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GlowQL — Premium GraphQL Beautifier & Formatter</title>
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="A premium, dark-themed GraphQL query beautifier, formatter, and minifier with live syntax validation and export tools.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+  <title>AryaSec1337 — Security Researcher & Full-Stack Developer</title>
+  <meta name="description" content="Personal portfolio of AryaSec1337 (Tengku Arya Saputra) - Specialist in Web Development, API Security, and Custom Tools.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   
-  <!-- PrismJS Tomorrow Night Theme (via CDN) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-  
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
+  <!-- Radial background glows -->
   <div class="bg-glow"></div>
-  
-  <div class="app-container">
-    <header class="app-header">
-      <div class="logo-area">
-        <span class="logo-icon">✨</span>
-        <div class="logo-text">
-          <h1>GlowQL</h1>
-          <p>GraphQL Beautifier & Formatter</p>
-        </div>
+
+  <div class="portfolio-container">
+    <!-- Header / Navigation -->
+    <header class="portfolio-header glass-panel">
+      <div class="logo">
+        <span class="logo-shield">🛡️</span>
+        <span class="logo-name">AryaSec1337</span>
       </div>
-      <div class="header-nav">
-        <button id="nav-formatter" class="nav-tab active">Formatter</button>
-        <button id="nav-playground" class="nav-tab">Playground</button>
-      </div>
-      <div class="header-actions">
-        <button id="load-sample-btn" class="btn btn-secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Load Sample
-        </button>
-      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
-    <!-- Tab 1: Formatter View -->
-    <div id="formatter-view" class="tab-content active">
-      <main class="workspace-grid">
-        <!-- Input Panel -->
-        <section class="panel glass-panel" id="input-panel">
-          <div class="panel-header">
-            <div class="panel-title">
-              <span class="panel-badge badge-input">Input</span>
-              <h2>Paste Raw GraphQL</h2>
-            </div>
-            <button id="clear-btn" class="btn-icon" title="Clear input">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-            </button>
-          </div>
-          <div class="panel-body">
-            <textarea id="graphql-input" placeholder="# Paste your GraphQL query (single-line or messy)...&#10;# OR paste a raw HTTP request header & payload dump...&#10;# Example: POST /api/graphql HTTP/2" spellcheck="false"></textarea>
-          </div>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">💻 Available for Projects</div>
+        <h1 class="hero-title">Tengku Arya Saputra</h1>
+        <h2 class="hero-subtitle">Security Researcher & <span class="text-glow-violet">Full-Stack Developer</span></h2>
+        <p class="hero-description">
+          Specializing in securing APIs, crafting high-performance web applications, and building developer tools. Focused on creating secure, beautiful, and robust digital experiences.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="graphql.html" class="btn btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            Open GlowQL Tool
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="cyber-shield-glow">
+          <div class="cyber-shield-inner">⚡</div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Output Panel -->
-        <section class="panel glass-panel" id="output-panel">
-          <div class="panel-header">
-            <div class="panel-title">
-              <span class="panel-badge badge-output">Output</span>
-              <h2>Beautified Result</h2>
+    <!-- About Section -->
+    <section id="about" class="about-section glass-panel">
+      <div class="section-header">
+        <span class="section-tag">01 / Profile</span>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Hello! I am a passionate developer and security analyst. I enjoy bridging the gap between web application engineering and cybersecurity auditing. My workflow centers around code optimization, validating endpoint security, and developing single-page web applications that provide clean utility for developers.
+          </p>
+          <p>
+            I believe that developer tools should be both highly functional and visually stunning. This philosophy drove me to build tools like <strong>GlowQL</strong>, combining schema-aware validation with real-time request execution in a premium glassmorphic dashboard.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <h3>Web Dev</h3>
+            <p>HTML/CSS, JS, Node.js</p>
+          </div>
+          <div class="stat-card">
+            <h3>API Security</h3>
+            <p>GraphQL, REST, CORS Auditing</p>
+          </div>
+          <div class="stat-card">
+            <h3>Tooling</h3>
+            <p>Bundlers, AST Parsing, curl</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="section-header">
+        <span class="section-tag">02 / Expertise</span>
+        <h2>Core Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card glass-panel">
+          <div class="skill-icon">🎨</div>
+          <h3>Frontend Engineering</h3>
+          <p>Crafting high-fidelity user interfaces, dark-mode styling, glassmorphism designs, responsive layouts, and smooth animations using vanilla technologies and modern standards.</p>
+        </div>
+        <div class="skill-card glass-panel">
+          <div class="skill-icon">⚙️</div>
+          <h3>API Development</h3>
+          <p>Designing, integrating, and optimizing GraphQL and REST endpoints. Skilled in query structures, batching protocols, and middleware integrations.</p>
+        </div>
+        <div class="skill-card glass-panel">
+          <div class="skill-icon">🛡️</div>
+          <h3>API Auditing & Security</h3>
+          <p>Assessing endpoints against authorization bypasses, validating input schemas, auditing CORS policies, and evaluating headers to prevent data leakages.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+      <div class="section-header">
+        <span class="section-tag">03 / Works</span>
+        <h2>Featured Projects & Tools</h2>
+      </div>
+      <div class="projects-grid">
+        <!-- GlowQL Project Card -->
+        <div class="project-card glass-panel highlight-project">
+          <div class="project-info">
+            <span class="project-tag-badge">🔥 Live Tool</span>
+            <h3>GlowQL</h3>
+            <p class="project-meta">GraphQL Beautifier, Minifier & Playground</p>
+            <p class="project-description">
+              A premium, client-side GraphQL query formatter and API executor. Instantly beautifies messy queries, escapes query strings into JSON-safe formats with literal newlines, parses raw HTTP request headers/payloads automatically, and runs operations against endpoints.
+            </p>
+            <div class="project-tech-tags">
+              <span>GraphQL AST</span>
+              <span>esbuild</span>
+              <span>Vanilla JS</span>
+              <span>CORS Audits</span>
             </div>
-            <div class="panel-actions">
-              <div class="toggle-group">
-                <button id="mode-beautify" class="toggle-btn active">Beautify</button>
-                <button id="mode-minify" class="toggle-btn">Minify</button>
+            <div class="project-actions">
+              <a href="graphql.html" class="btn btn-sm btn-primary">Launch Application</a>
+            </div>
+          </div>
+          <div class="project-preview">
+            <div class="preview-mockup">
+              <div class="mockup-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="mockup-url">graphql.html</span>
+              </div>
+              <div class="mockup-content">
+                <pre class="mockup-code"><code>query ReviewsList {
+  restaurant(id: $id) {
+    name
+    ratings
+  }
+}</code></pre>
               </div>
             </div>
           </div>
-          <div class="panel-body code-container">
-            <div class="output-actions">
-              <button id="copy-query-btn" class="btn btn-sm btn-primary">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                <span>Copy Query</span>
-              </button>
-              <button id="copy-json-btn" class="btn btn-sm btn-secondary">
-                <span>Copy as JSON</span>
-              </button>
-              <button id="copy-curl-btn" class="btn btn-sm btn-secondary">
-                <span>Copy curl</span>
-              </button>
-            </div>
-            <pre id="graphql-output-pre"><code id="graphql-output" class="language-graphql"># Output will appear here...</code></pre>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <!-- Tab 2: Playground (Executor) View -->
-    <div id="playground-view" class="tab-content">
-      <main class="workspace-grid">
-        <!-- Settings Panel -->
-        <section class="panel glass-panel" id="settings-panel">
-          <div class="panel-header">
-            <div class="panel-title">
-              <span class="panel-badge badge-input">Settings</span>
-              <h2>Request Configuration</h2>
-            </div>
-          </div>
-          <div class="panel-body playground-settings">
-            <div class="input-group">
-              <label for="endpoint-input">GraphQL Endpoint URL</label>
-              <input type="url" id="endpoint-input" value="https://www.thefork.com/api/graphql" placeholder="https://api.example.com/graphql" spellcheck="false">
-            </div>
-            
-            <div class="input-group flex-1">
-              <label for="headers-input">HTTP Headers (JSON)</label>
-              <textarea id="headers-input" placeholder='{&#10;  "Content-Type": "application/json"&#10;}' spellcheck="false"></textarea>
-            </div>
-            
-            <div class="input-group flex-1">
-              <label for="variables-input">Query Variables (JSON)</label>
-              <textarea id="variables-input" placeholder='{&#10;  "restaurantId": "123"&#10;}' spellcheck="false"></textarea>
-            </div>
-          </div>
-        </section>
-
-        <!-- Response Panel -->
-        <section class="panel glass-panel" id="response-panel">
-          <div class="panel-header">
-            <div class="panel-title">
-              <span class="panel-badge badge-output">Response</span>
-              <h2>Execution Result</h2>
-            </div>
-            <div class="panel-actions">
-              <button id="run-query-btn" class="btn btn-sm btn-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                <span>Run Query</span>
-              </button>
-            </div>
-          </div>
-          <div class="panel-body code-container">
-            <div class="cors-alert">
-              <span class="alert-icon">⚠️</span>
-              <p class="alert-text"><strong>CORS Restriction:</strong> If the endpoint blocks requests, ensure you have a CORS unblocker extension active, or use <strong>Copy curl</strong> on the Formatter tab to run in a terminal.</p>
-            </div>
-            <pre id="playground-response-pre"><code id="playground-response" class="language-json">{ "message": "Execute query to see response..." }</code></pre>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <!-- Diagnostics / Status Footer -->
-    <footer class="app-footer glass-panel">
-      <div id="status-bar" class="status-bar info">
-        <span class="status-icon">💡</span>
-        <span id="status-message" class="status-text">Enter or paste a GraphQL query to format.</span>
+        </div>
       </div>
-      <div class="footer-stats">
-        <span id="char-count">0 characters</span>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section glass-panel">
+      <div class="section-header">
+        <span class="section-tag">04 / Connectivity</span>
+        <h2>Get In Touch</h2>
       </div>
+      <div class="contact-content">
+        <p>I am always open to discussing new projects, API security audits, or tooling integrations.</p>
+        <div class="contact-links">
+          <a href="mailto:tengku.saputra@megainsurance.co.id" class="contact-link-item">
+            <span class="icon">📧</span>
+            <span>tengku.saputra@megainsurance.co.id</span>
+          </a>
+          <a href="https://github.com/AryaSec1337" target="_blank" class="contact-link-item">
+            <span class="icon">🐙</span>
+            <span>github.com/AryaSec1337</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+      <p>&copy; 2026 AryaSec1337. Built with modern web standards.</p>
     </footer>
   </div>
-
-  <!-- Toast Notification -->
-  <div id="toast" class="toast hidden">Copied to clipboard!</div>
-
-  <!-- PrismJS Core and GraphQL/JSON Components (via CDN) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-graphql.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
-
-  <!-- App Script -->
-  <script src="bundle.js"></script>
 </body>
 </html>
